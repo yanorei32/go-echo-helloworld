@@ -1,2 +1,2 @@
-docker build -t go-helloworld ./
+docker build -t go-echo-helloworld ./
 

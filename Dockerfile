@@ -2,6 +2,9 @@ FROM golang AS build-env
 
 MAINTAINER yanorei32
 
+RUN go get -u github.com/labstack/echo/ && \
+	go get -u github.com/labstack/echo/middleware
+
 COPY ./src /work/
 
 RUN CGO_ENABLED=0 \
@@ -9,8 +12,6 @@ RUN CGO_ENABLED=0 \
 	GOARCH=amd64 \
 	go build \
 		-ldflags "-s -w" \
-		-a \
-		-installsuffix cgo \
 		-o /work/app \
 		/work/main.go
 

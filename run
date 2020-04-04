@@ -1,6 +1,7 @@
 docker run \
 	-it \
 	--init \
-	--name go-helloworld \
-	go-helloworld
+	-p 1323:1323\
+	--name go-echo-helloworld \
+	go-echo-helloworld
 
